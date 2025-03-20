@@ -1,42 +1,158 @@
 .dashboard-container {
-    padding: 20px;
-    background-color: #f4f4f9;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  padding: 20px;
+  background-color: #f4f4f9;
+  min-height: 96vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.dashboard-title {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 30px;
+  font-family: 'Arial', sans-serif;
+}
+
+.chart-wrapper {
+  width: 80%;
+  max-width: 1000px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.dashboard-chart {
+  width: 100% !important;
+  height: 400px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  gap: 15px;
+  margin-top: 20px;
+  align-items: center;
+}
+
+.dashboard-container {
+  position: relative;  
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  padding: 10px;
+}
+
+.profile-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-right: 60px;
+}
+
+.profile-button .fa-user {
+  font-size: 24px;
+  margin-right: 8px;
+}
+
+.username {
+  font-weight: bold;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 35px;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+}
+
+.dropdown-item {
+  padding: 10px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f0f0;
+}
+
+
+.sale-form-container {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.sale-form {
+  display: flex;
+  gap: 10px;
+  flex-direction: row;
+}
+
+.sale-form input,
+.sale-form select {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  width: 150px;
+}
+
+.sale-form button {
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.sale-form button:hover {
+  background-color: #218838;
+}
+
+
+@media (max-width: 768px) {
+  .chart-wrapper {
+    width: 90%;
   }
 
   .dashboard-title {
-    font-size: 2rem;
-    color: #333;
-    margin-bottom: 30px;
-    font-family: 'Arial', sans-serif;
+    font-size: 1.5rem;
   }
 
-  .chart-wrapper {
-    width: 80%;
-    max-width: 1000px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-top: 20px;
+  .sale-form-container {
+    flex-direction: column;
+    align-items: stretch;
   }
 
-  .dashboard-chart {
-    width: 100% !important;
-    height: 400px;
+  .sale-form {
+    width: 100%;
   }
 
-  @media (max-width: 768px) {
-    .chart-wrapper {
-      width: 90%;
-    }
-  
-    .dashboard-title {
-      font-size: 1.5rem;
-    }
+  .sale-form input,
+  .sale-form select {
+    width: 100%;
   }
-  
+}

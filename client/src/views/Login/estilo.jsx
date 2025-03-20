@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import './estilo.css';
-import { useNavigate } from 'react-router-dom'; // Importando o useNavigate
+import imgs from '../../imgs/arrayImagens';
+import { useNavigate } from 'react-router-dom'; 
 
 const LoginForm = () => {
     const [usuario, setUsuario] = useState('');
     const [senha, setSenha] = useState('');
     const [error, setError] = useState('');
-    const navigate = useNavigate(); // Inicializando o useNavigate
+    const navigate = useNavigate(); 
 
     const handleLoginSubmit = async (e) => {
         e.preventDefault();
@@ -23,10 +24,10 @@ const LoginForm = () => {
             const data = await response.json();
 
             if (response.ok) {
-                alert(data.message); // Mensagem de sucesso
-                navigate('/Dashboard'); // Redireciona para o Dashboard
+                alert(data.message); 
+                navigate('/Dashboard'); 
             } else {
-                setError(data.message); // Exibe a mensagem de erro
+                setError(data.message); 
             }
         } catch (error) {
             console.error('Erro ao fazer a requisição:', error);
@@ -37,9 +38,9 @@ const LoginForm = () => {
     return (
         <div className="auth-container">
             <form className="auth-form" onSubmit={handleLoginSubmit}>
-                <p className="auth-title">Faça seu login</p>
+                <img src={imgs.logoLogin} alt="logo-dashboard" className='auth-title' />
 
-                {error && <div className="error-msg">{error}</div>} {/* Exibe o erro caso haja */}
+                {error && <div className="error-msg">{error}</div>} 
 
                 <div className="input-wrapper">
                     <label className="input-label" htmlFor="usuario">Usuário</label>

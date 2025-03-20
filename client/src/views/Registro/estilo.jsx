@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import imgs from '../../imgs/arrayImagens';
 import './estilo.css';
 
 const RegisterForm = () => {
@@ -41,8 +42,7 @@ const RegisterForm = () => {
     return (
         <div className="register-container">
             <form className="register-form" onSubmit={handleRegisterSubmit}>
-                <p className="register-title">Crie sua conta</p>
-
+            <img src={imgs.logoRegistrar} alt="logo-dashboard" className='register-title' />        
                 {error && <div className="error-message">{error}</div>} 
 
                 <div className="input-group">

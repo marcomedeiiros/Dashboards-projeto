@@ -6,11 +6,8 @@
     place-items: center;
 }
 
-.register-title {
-    font-size: 1.3125rem;
-    font-weight: 700;
-    color: #222;
-    margin-bottom: 5rem;
+.register-title {        
+    max-width:  80%;       
 }
 
 .register-form {
