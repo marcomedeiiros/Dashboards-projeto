@@ -9,8 +9,8 @@ const GerenciarMembros = () => {
   const [cargo, setCargo] = useState('');
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
-  const [editId, setEditId] = useState(null);
-  const [isDropdownVisible, setIsDropdownVisible] = useState(false); 
+  const [editId, setEditId] = useState(null); 
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -102,7 +102,7 @@ const GerenciarMembros = () => {
       .then((response) => response.json())
       .then((data) => {
         if (data.message === 'Membro adicionado com sucesso!') {
-          setMembros([...membros, newMembro]);
+          setMembros([...membros, { ...newMembro, id: data.id }]);
           setNome('');
           setCargo('');
           setEmail('');
@@ -126,8 +126,8 @@ const GerenciarMembros = () => {
   };
 
   const handleLogout = () => {
-    
     alert('Sessão finalizada!');
+    navigate('/');
   };
 
   if (loading) {
@@ -177,7 +177,24 @@ const GerenciarMembros = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <button type="submit">{editId ? 'Atualizar Membro' : 'Adicionar Membro'}</button>
+
+        <div className="form-buttons">
+          <button className="add-member-btn" type="submit">{editId ? 'Salvar' : 'Adicionar Membro'}</button>
+          {editId && (
+            <button 
+              className="cancel-edit-btn"
+              type="button" 
+              onClick={() => {
+                setNome('');
+                setCargo('');
+                setEmail('');
+                setEditId(null);
+              }}
+            >
+              Cancelar Edição
+            </button>
+          )}
+        </div>
       </form>
 
       <ul>

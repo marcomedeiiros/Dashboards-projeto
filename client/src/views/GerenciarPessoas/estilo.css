@@ -3,9 +3,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; 
+  min-height: 100vh;
   padding: 20px;
-  background-color: #f7f7f7; 
+  background-color: #f7f7f7;
 }
 
 .membros-list h2 {
@@ -18,11 +18,11 @@
 .form-add-membro {
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
   justify-content: center;
   margin-bottom: 20px;
   width: 100%;
-  max-width: 400px; 
+  max-width: 400px;
 }
 
 .form-add-membro input {
@@ -43,127 +43,164 @@
   border: none;
   cursor: pointer;
   width: 100%;
-  max-width: 200px; 
+  max-width: 200px;
   align-items: center;
   justify-content: center;
-  margin-top: 10px; 
-  border-radius: 4px; 
+  margin-top: 10px;
+  border-radius: 4px;
 }
 
 .form-add-membro button:hover {
-  background-color: #28a745; 
+  background-color: #28a745;
 }
 
-  
-  .error {
-    color: red;
-    margin-bottom: 10px;
-  }  
-  
-  .membros-list ul {
-    list-style-type: none;
-    padding: 0;
-    width: 100%;
-    max-width: 600px; 
-  }
-  
-  .membros-list li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 15px;
-    transition: all 0.3s ease;
-  }
-  
-  .membros-list li:hover {
-    transform: scale(1.02);
-  }
-  
-  .membros-list li span {
-    font-size: 1.1rem;
-    color: #333;
-  }
-  
-  .membros-list li button {
-    padding: 8px 15px;
-    font-size: 0.9rem;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    margin-left: 10px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-  }
-  
-  .membros-list li button:first-of-type {
-    background-color: #ffee00;
-    color: #000000;
-  }
-  
-  .membros-list li button:first-of-type:hover {
-    background-color: #ffee00;
-    transform: translateY(-2px);
-  }
-  
-  .membros-list li button:last-of-type {
-    background-color: #ff0000;
-    color: #000000;
-  }
-  
-  .membros-list li button:last-of-type:hover {
-    background-color: #ff0000;
-    transform: translateY(-2px);
-  }  
 
-  .profile-container {
-    position: fixed; 
-    top: 20px; 
-    right: 20px; 
-    z-index: 100; 
-  }
-  
-  .profile-button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 24px;
-  }
-  
-  .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 200px;
-    z-index: 10;
-  }
-  
-  .dropdown-item {
-    padding: 10px;
-    text-align: left;
-    width: 100%;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-  }
-  
-  .dropdown-item:hover {
-    background-color: #f1f1f1;
-  }
-  
-  button {
-    padding: 10px;
-    margin: 5px 0;
-    cursor: pointer;
-  }
-  
-  button:focus {
-    outline: none;
-  }
-  
-  
+.error {
+  color: red;
+  margin-bottom: 10px;
+}
+
+.membros-list ul {
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+  max-width: 600px;
+}
+
+.membros-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+.membros-list li:hover {
+  transform: scale(1.02);
+}
+
+.membros-list li span {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.membros-list li button {
+  padding: 8px 15px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.membros-list li button:first-of-type {
+  background-color: #ffee00;
+  color: #000000;
+}
+
+.membros-list li button:first-of-type:hover {
+  background-color: #ffee00;
+  transform: translateY(-2px);
+}
+
+.membros-list li button:last-of-type {
+  background-color: #ff0000;
+  color: #000000;
+}
+
+.membros-list li button:last-of-type:hover {
+  background-color: #ff0000;
+  transform: translateY(-2px);
+}
+
+.profile-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+}
+
+.profile-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  z-index: 10;
+}
+
+.dropdown-item {
+  padding: 10px;
+  text-align: left;
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #f1f1f1;
+}
+
+button {
+  padding: 10px;
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
+
+.add-member-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-right: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.add-member-btn:hover {
+  background-color: #45a049;
+}
+
+.add-member-btn[type="submit"]:not(:disabled) {
+  background-color: #2196F3;
+}
+
+.add-member-btn[type="submit"]:not(:disabled):hover {
+  background-color: #0b7dda;
+}
+
+.cancel-edit-btn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.cancel-edit-btn:hover {
+  background-color: #d32f2f;
+}
+
+.form-buttons {
+  margin-top: 20px;
+}
