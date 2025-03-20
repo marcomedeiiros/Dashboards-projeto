@@ -1,0 +1,106 @@
+.login-container {
+    min-height: 100vh;
+    background: #81259d;
+    font-family: sans-serif;
+    display: grid;
+    place-items: center;
+}
+
+.login-title {
+    font-size: 1.3125rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 5rem;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 28rem;
+    background: #fff;
+    padding: 4rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 1rem 0.25rem rgba(0, 0, 0, 0.1);
+}
+
+.input-label {
+    width: 100%;
+    color: #777;
+    align-self: flex-start;
+    transition: 0.15s linear;
+}
+
+.input-label:focus-within {
+    color: #81259d;
+}
+
+.input-field {
+    font-size: 1.1875rem;
+    color: #404040;
+    padding: 1rem 0 0.5rem 0;
+    width: 100%;
+    border: none;
+    border-color: #a0a0a0;
+    border-bottom-width: 1px;
+    border-bottom-style: dotted;
+    margin-bottom: 3rem;
+    transition: 0.15s linear;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #81259d;
+}
+
+.submit-btn {
+    font-size: 0.8125rem;
+    line-height: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    width: 100%;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    background: transparent;
+    color: #81259d;
+    border: 1px solid currentColor;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+    transition: 0.25s;
+}
+
+.submit-btn:hover,
+.submit-btn:focus {
+    outline: none;
+    background: #81259d;
+    color: #fff;
+}
+
+.links {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.link {
+    display: block;
+    color: #81259d;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.link:hover,
+.link:focus {
+    color: #000;
+    outline: none;
+}
+
+.link:first-of-type {
+    margin-top: 3em;
+}
+
+.link + .link {
+    margin-top: 1.125em;
+}
