@@ -193,6 +193,10 @@ const Dashboard = () => {
     setIsDropdownVisible(!isDropdownVisible); 
   };
 
+  const handleManageParticipants = () => {
+    navigate('/Gerenciar');
+  };
+
   return (
     <div className="dashboard-container">
       <div className="button-container">
@@ -204,6 +208,7 @@ const Dashboard = () => {
         {isDropdownVisible && (
           <div className="dropdown-menu">
             <button className="dropdown-item">Perfil</button>
+            <button className="dropdown-item" onClick={handleManageParticipants}>Gerenciar Membros da empresa</button>
             <button className="dropdown-item" onClick={handleLogout}>Finalizar Sessão</button>
           </div>
         )}
