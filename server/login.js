@@ -1,54 +1,68 @@
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require('body-parser');
+const db = require('./db'); 
 
 const app = express();
 const port = 5000;
 
+app.use(cors()); 
+app.use(bodyParser.json()); 
 
-app.use(bodyParser.json());
+// Rota de login
+app.post('/login', (req, res) => {
+    const { usuario, senha } = req.body;
 
-const users = [
-    {
-        usuario: 'usuario1',
-        password: 'senha123',
-    },
-    {
-        usuario: 'usuario2',
-        password: 'senha456',
-    }
-];
+    const query = 'SELECT * FROM users WHERE usuario = ? AND senha = ?';
 
-app.post('/', (req, res) => {
-    const { usuario, password } = req.body;
+    db.query(query, [usuario, senha], (err, results) => {
+        if (err) {
+            return res.status(500).json({ message: 'Erro ao realizar login' });
+        }
+        
+        if (results.length > 0) {
 
-    const user = users.find(user => user.usuario === usuario);
+            res.status(200).json({ message: 'Login realizado com sucesso!' });
+        } else {
 
-    if (!user) {
-        return res.status(401).json({ message: 'Usuário não encontrado' });
-    }
-
-    if (user.password !== password) {
-        return res.status(401).json({ message: 'Senha incorreta' });
-    }
-
-    res.status(200).json({ message: 'Login bem-sucedido' });
+            res.status(400).json({ message: 'Usuário ou senha incorretos' });
+        }
+    });
 });
+
 
 app.post('/register', (req, res) => {
-    const { usuario, password } = req.body;
+    const { usuario, senha } = req.body;
 
-    const existingUser = users.find(user => user.usuario === usuario);
-    if (existingUser) {
-        return res.status(400).json({ message: 'Usuário já existe' });
-    }
+    console.log('Recebendo dados:', { usuario, senha }); // Log para depuração
 
-    users.push({ usuario, password });
-    
+    const checkQuery = 'SELECT * FROM users WHERE usuario = ?';
 
-    res.status(201).json({ message: 'Usuário registrado com sucesso' });
+    db.query(checkQuery, [usuario], (err, results) => {
+        if (err) {
+            console.log('Erro ao verificar usuário:', err); // Log do erro
+            return res.status(500).json({ message: 'Erro ao verificar usuário' });
+        }
+
+        if (results.length > 0) {
+            res.status(400).json({ message: 'Usuário já existe' });
+        } else {
+            const insertQuery = 'INSERT INTO users (usuario, senha) VALUES (?, ?)';
+            
+            db.query(insertQuery, [usuario, senha], (err, results) => {
+                if (err) {
+                    console.log('Erro ao registrar usuário:', err); // Log do erro
+                    return res.status(500).json({ message: 'Erro ao registrar usuário' });
+                }
+                console.log('Usuário registrado com sucesso!');
+                res.status(200).json({ message: 'Usuário registrado com sucesso!' });
+            });
+        }
+    });
 });
 
-// run serverrrrrrrr hehehehehe
+
+// run server
 app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}`);
 });
