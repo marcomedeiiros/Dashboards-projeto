@@ -132,6 +132,80 @@
   background-color: #218838;
 }
 
+/* Estilos para a lista de Vendas */
+.vendas-list {
+  margin-top: 30px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.vendas-list h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.vendas-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.vendas-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+.vendas-list li:hover {
+  transform: scale(1.02);
+}
+
+.vendas-list li span {
+  font-size: 1.1rem;
+  
+  color: #333;
+}
+
+.vendas-list li button {
+  padding: 8px 15px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.vendas-list li button:first-of-type {
+  background-color: #ffee00;
+  color: #000000;
+}
+
+.vendas-list li button:first-of-type:hover {
+  background-color: #ffee00;
+  transform: translateY(-2px);
+}
+
+.vendas-list li button:last-of-type {
+  background-color: #ff0000;
+  color: #000000;
+}
+
+.vendas-list li button:last-of-type:hover {
+  background-color: #ff0000;
+  transform: translateY(-2px);
+}
+
+
 
 @media (max-width: 768px) {
   .chart-wrapper {

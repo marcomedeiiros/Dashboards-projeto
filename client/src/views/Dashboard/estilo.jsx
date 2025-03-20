@@ -86,6 +86,67 @@ const Dashboard = () => {
       });
   };
 
+  const handleUpdate = (vendaId) => {
+    const empresa = prompt('Informe o novo nome da empresa:');
+    const dataVenda = prompt('Informe a nova data de venda:');
+    const quantidade = prompt('Informe a nova quantidade de vendas:');
+
+    if (empresa && dataVenda && quantidade) {
+      const updatedVenda = {
+        empresa,
+        data_venda: dataVenda,
+        quantidade: parseInt(quantidade),
+      };
+
+      fetch(`http://localhost:5000/update-venda/${vendaId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedVenda),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log('Venda atualizada:', data);
+          fetch('http://localhost:5000/vendas')
+            .then(response => response.json())
+            .then(vendasData => {
+              setVendas(vendasData);
+            })
+            .catch(error => {
+              console.error('Erro ao carregar vendas após atualização:', error);
+            });
+        })
+        .catch((error) => {
+          console.error('Erro ao atualizar venda:', error);
+        });
+    }
+  };
+
+  const handleDelete = (vendaId) => {
+    const confirmDelete = window.confirm('Tem certeza que deseja deletar esta venda?');
+    if (confirmDelete) {
+      fetch(`http://localhost:5000/delete-venda/${vendaId}`, {
+        method: 'DELETE',
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log('Venda deletada:', data);          
+          fetch('http://localhost:5000/vendas')
+            .then(response => response.json())
+            .then(vendasData => {
+              setVendas(vendasData);
+            })
+            .catch(error => {
+              console.error('Erro ao carregar vendas após exclusão:', error);
+            });
+        })
+        .catch((error) => {
+          console.error('Erro ao deletar venda:', error);
+        });
+    }
+  };
+
   const data = {
     labels: vendas.map((venda) => venda.empresa),
     datasets: [
@@ -177,6 +238,19 @@ const Dashboard = () => {
 
       <div className="chart-wrapper">
         <Bar data={data} options={options} className="dashboard-chart" />
+      </div>
+
+      <div className="vendas-list">
+        <h2>Vendas Cadastradas</h2>
+        <ul>
+          {vendas.map((venda) => (
+            <li key={venda.id}>
+              <span>{venda.empresa} - {venda.data_venda} - {venda.quantidade} vendas</span>
+              <button onClick={() => handleUpdate(venda.id)}>Editar</button>
+              <button onClick={() => handleDelete(venda.id)}>Deletar Venda</button>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
